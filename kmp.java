@@ -1,4 +1,4 @@
-public class methclass {
+public class kmp {
     public int[] computeLPS(String pattern) {
         int m = pattern.length();
         int[] lps = new int[m];

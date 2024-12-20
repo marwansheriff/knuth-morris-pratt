@@ -5,7 +5,7 @@ public class Main {
         // the complixty O(n+m) which n is lenth of text and m is length of lps list
         // need more test cases
         // to check my code effecincy
-        methclass obj = new methclass();
+        kmp obj = new kmp();
         String pattren = "abab";
         String text = "abababab";
         int[] lps = obj.computeLPS(pattren);
