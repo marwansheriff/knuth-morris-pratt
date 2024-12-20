@@ -29,12 +29,17 @@ public class kmp {
         int i = 0;
         int j = 0;
         int found = 0;
+        int[] index1= new int[lps.length];
+        int index_it=0;
         while (i < arr.length()) {
             if (j == pattern.length() - 1) {
                 found++;
+                index1[index_it]=(i)-(pattern.length())+1;
+                index_it++;
                 j++;
                 i++;
                 j = lps[j - 1];
+
             } else if (arr.charAt(i) == pattern.charAt(j)) {
                 i++;
                 j++;
@@ -47,6 +52,9 @@ public class kmp {
             }
 
         }
+        System.out.print("match found at " );
+        for (int p=0;p<index_it-1;p++)
+        {System.out.print(index1[p]+",");}
         return found;
     }
 }
