@@ -23,31 +23,29 @@ public class methclass {
         }
         return lps;
     }
-    public int KMP(String pattern,String arr,int[] lps){
 
-        int i=0;
-        int j=0;
-        int found=0;
-        while ( i < arr.length()){
-            if(j==pattern.length()-1){
+    public int KMP(String pattern, String arr, int[] lps) {
+
+        int i = 0;
+        int j = 0;
+        int found = 0;
+        while (i < arr.length()) {
+            if (j == pattern.length() - 1) {
                 found++;
-                j=lps[j-1];
+                j = lps[j - 1];
                 i++;
-            }
-            else if(arr.charAt(i)==pattern.charAt(j)){
+            } else if (arr.charAt(i) == pattern.charAt(j)) {
                 i++;
                 j++;
-            }
-            else if(arr.charAt(i)!=pattern.charAt(j)){
-                if(j!=0) {
+            } else if (arr.charAt(i) != pattern.charAt(j)) {
+                if (j != 0) {
                     j = lps[j - 1];
-                }
-                else {
+                } else {
                     i++;
                 }
             }
 
         }
-return found;
+        return found;
     }
 }
