@@ -32,8 +32,9 @@ public class kmp {
         while (i < arr.length()) {
             if (j == pattern.length() - 1) {
                 found++;
-                j = lps[j - 1];
+                j++;
                 i++;
+                j = lps[j - 1];
             } else if (arr.charAt(i) == pattern.charAt(j)) {
                 i++;
                 j++;
