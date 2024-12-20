@@ -10,7 +10,7 @@ public class Main {
         String text = "abababab";
         int[] lps = obj.computeLPS(pattren);
         for (int i = 0; i < lps.length; i++) {
-            System.out.print(lps[i]);
+            System.out.prin t(lps[i]);
             System.out.print(",");
         }
 
