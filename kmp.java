@@ -53,8 +53,9 @@ public class kmp {
 
         }
         System.out.print("match found at " );
-        for (int p=0;p<index_it-1;p++)
+        for (int p=0;p<index_it;p++)
         {System.out.print(index1[p]+",");}
+        System.out.println();
         return found;
     }
 }
