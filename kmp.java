@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class kmp {
     public int[] computeLPS(String pattern) {
         int m = pattern.length();
@@ -29,13 +32,11 @@ public class kmp {
         int i = 0;
         int j = 0;
         int found = 0;
-        int[] index1= new int[lps.length];
-        int index_it=0;
+        ArrayList<Integer> index1 = new ArrayList<>();
         while (i < arr.length()) {
             if (j == pattern.length() - 1) {
                 found++;
-                index1[index_it]=(i)-(pattern.length())+1;
-                index_it++;
+                index1.add((i)-(pattern.length())+1);
                 j++;
                 i++;
                 j = lps[j - 1];
@@ -53,9 +54,7 @@ public class kmp {
 
         }
         System.out.print("match found at " );
-        for (int p=0;p<index_it;p++)
-        {System.out.print(index1[p]+",");}
-        System.out.println();
+        System.out.println(index1);
         return found;
     }
 }
