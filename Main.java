@@ -5,8 +5,8 @@ public class Main {
         // need more test cases
         // to check my code effecincy
         kmp obj = new kmp();
-        String pattren = "aabaacaadaabaaba";
-        String text = "aaba";
+        String text = "aabaacaadaabaaba";
+        String pattren = "aaba";
         int[] lps = obj.computeLPS(pattren);
         for (int i = 0; i < lps.length; i++) {
             System.out.print(lps[i]);
