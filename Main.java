@@ -9,10 +9,12 @@ public class Main {
         String pattren = "abab";
         String text = "abababab";
         int[] lps = obj.computeLPS(pattren);
+        System.out.print('[');
         for (int i = 0; i < lps.length; i++) {
             System.out.print(lps[i]);
             System.out.print(",");
         }
+        System.out.print(']');
 
         System.out.println();
         System.out.println(obj.KMP(pattren, text, lps));
