@@ -4,8 +4,9 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
         // Path to the input file
-        String filePath = "kmp_datasets/dataset_n10000000_edge_no_match.txt"; // Update with your file path
+        String filePath = "dataset_n10000000_random.txt"; // Update with your file path
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             // Read the first line as text
@@ -36,5 +37,9 @@ public class Main {
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime) / 1000000; // Convert from nanoseconds to milliseconds
+        System.out.println("Execution Time: " + duration + " ms");
     }
+
 }
