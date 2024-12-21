@@ -54,6 +54,7 @@ public class kmp {
         }
         System.out.print("match found at " );
         System.out.println(index1);
+        System.out.print("Total match found: ");
         return found;
     }
 }
