@@ -1,20 +1,53 @@
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
-        // the complixty O(n+m) which n is lenth of text and m is length of lps list
-        // need more test cases
-        // to check my code effecincy
         kmp obj = new kmp();
-        String text = "aabaacaadaabaaba";
-        String pattren = "aaba";
-        int[] lps = obj.computeLPS(pattren);
-        for (int i = 0; i < lps.length; i++) {
-            System.out.print(lps[i]);
-            System.out.print(",");
+        String pattern = "aaba";
+
+        // Dataset sizes
+        int[] sizes = {1000, 10000, 100000, 1000000, 10000000, 100000000};
+
+        // Execution time results
+        long[] executionTimes = new long[sizes.length];
+
+        for (int t = 0; t < sizes.length; t++) {
+            int n = sizes[t];
+            System.out.println("Testing dataset size: " + n);
+
+            // Generate random text
+            String text = generateRandomString(n);
+
+            // Compute LPS array
+            int[] lps = obj.computeLPS(pattern);
+
+            // Measure execution time
+            long startTime = System.nanoTime();
+            obj.KMP(pattern, text, lps);
+            long endTime = System.nanoTime();
+
+            // Calculate execution time in milliseconds
+            executionTimes[t] = (endTime - startTime) / 1_000_000;
+
+            System.out.println("Execution time for n=" + n + ": " + executionTimes[t] + " ms");
         }
 
-        System.out.println();
-        System.out.println(obj.KMP(pattren, text, lps));
+        // Plot the results
+        System.out.println("Execution Times (ms): ");
+        for (int i = 0; i < sizes.length; i++) {
+            System.out.println("n=" + sizes[i] + ", Time=" + executionTimes[i] + " ms");
+        }
+    }
 
+    // Helper function to generate random string of size n
+    private static String generateRandomString(int n) {
+        String chars = "abcdefghijklmnopqrstuvwxyz";
+        Random rand = new Random();
+        StringBuilder sb = new StringBuilder(n);
+        for (int i = 0; i < n; i++) {
+            sb.append(chars.charAt(rand.nextInt(chars.length())));
+        }
+        return sb.toString();
     }
 }
