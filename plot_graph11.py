@@ -5,13 +5,16 @@ import numpy as np
 sizes = [1000, 10000, 100000, 1000000, 10000000, 100000000]
 
 # Measured execution times (replace with actual data from your program)
-execution_times = [0.3245, 1.4 , 9.6, 10.8, 32.6, 305.6]  # Example values in milliseconds
+execution_times = [0.6065, 2.0304 , 10.0007, 12.7338,  39.9726, 357.6481]  # Example values in milliseconds
 
 # Fixed pattern length (m)
-m = 100  # Example pattern length
+m = 4  # pattern length
+
+# Adjust the scaling factor based on your observations (you might need to tweak this further)
+scaling_factor = 1e-3 
 
 # Theoretical O(n + m) complexity (scaled to match measured times)
-theoretical_times = [(size + m) * 1e-5 for size in sizes]  # Adjust scaling factor (1e-5)
+theoretical_times = [(size + m) * scaling_factor for size in sizes]
 
 # Plot measured execution times
 plt.figure(figsize=(10, 6))

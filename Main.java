@@ -10,7 +10,7 @@ public class Main {
         int[] sizes = {1000, 10000, 100000, 1000000, 10000000, 100000000};
 
         // Execution time results
-        long[] executionTimes = new long[sizes.length];
+        float[] executionTimes = new float[sizes.length];
 
         for (int t = 0; t < sizes.length; t++) {
             int n = sizes[t];
@@ -27,8 +27,8 @@ public class Main {
             obj.KMP(pattern, text, lps);
             long endTime = System.nanoTime();
 
-            // Calculate execution time in milliseconds
-            executionTimes[t] = (endTime - startTime) / 1_000_000;
+            // Calculate execution time in milliseconds with float precision
+            executionTimes[t] = (endTime - startTime) / 1_000_000.0f;
 
             System.out.println("Execution time for n=" + n + ": " + executionTimes[t] + " ms");
         }
